@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine } from 'recharts';
-import { Activity, Zap, Layers, Cpu, Factory } from 'lucide-react';
+import { Activity, Layers, Cpu, Factory, Calendar, Filter } from 'lucide-react';
 
 const aprilFilingData = [
   { date: 'Week 1', actual: 869, target: 872, lsl: 860, usl: 880 },
@@ -17,24 +17,25 @@ const aprilPastingData = [
 ];
 
 const aprilGridCastingData = [
-  { date: 'Week 1', actual: 125.2, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 97.0 },
-  { date: 'Week 2', actual: 125.6, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 95.4 },
-  { date: 'Week 3', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 96.1 },
-  { date: 'Week 4', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 96.4 },
+  { date: 'Week 1', actual: 125.2, target: 125.5, lsl: 124.4, usl: 126.8 },
+  { date: 'Week 2', actual: 125.6, target: 125.5, lsl: 124.4, usl: 126.8 },
+  { date: 'Week 3', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8 },
+  { date: 'Week 4', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8 },
 ];
 
-const aprilChargingData = [
-  { date: 'Week 1', actual: 15.1, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.1 },
-  { date: 'Week 2', actual: 14.8, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.3 },
-  { date: 'Week 3', actual: 15.2, target: 15.0, lsl: 14.5, usl: 15.7, current: 14.9 },
-  { date: 'Week 4', actual: 15.0, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.1 },
+const aprilSpineCastingData = [
+  { date: 'Week 1', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8 },
+  { date: 'Week 2', actual: 87.6, target: 87.5, lsl: 86.2, usl: 88.8 },
+  { date: 'Week 3', actual: 87.1, target: 87.5, lsl: 86.2, usl: 88.8 },
+  { date: 'Week 4', actual: 87.4, target: 87.5, lsl: 86.2, usl: 88.8 },
 ];
+
+const sectionsList = ['Grid Casting', 'Spine Casting', 'Filing', 'Pasting'];
 
 const complianceCards = [
   { label: 'Filing deviation', value: '+2 g', status: 'On target', icon: <Layers size={18} color="#60a5fa" /> },
   { label: 'Pasting deviation', value: '-1 g', status: 'Minor trim', icon: <Activity size={18} color="#34d399" /> },
   { label: 'Casting variance', value: '+0.4 g', status: 'Stable', icon: <Cpu size={18} color="#f97316" /> },
-  { label: 'Charge pulse', value: '+0.2 V', status: 'Nominal', icon: <Zap size={18} color="#c084fc" /> },
 ];
 
 const ChartPanel = ({ title, subtitle, icon, accent, data, yAxisLabel, yMin, yMax, lines, secondaryAxis = false, rightDomain = [80, 100] }) => (
@@ -86,6 +87,34 @@ const ChartPanel = ({ title, subtitle, icon, accent, data, yAxisLabel, yMin, yMa
 );
 
 const AprilDashboard = () => {
+  const [selectedDates, setSelectedDates] = useState(['Week 1', 'Week 2', 'Week 3', 'Week 4']);
+  const [selectedSections, setSelectedSections] = useState(['Grid Casting', 'Filing', 'Pasting']);
+
+  // Filter data based on selections
+  const filterData = (data) => {
+    return data.filter(item => selectedDates.includes(item.date));
+  };
+
+  const filteredFilingData = filterData(aprilFilingData);
+  const filteredPastingData = filterData(aprilPastingData);
+  const filteredGridCastingData = filterData(aprilGridCastingData);
+  const filteredSpineCastingData = filterData(aprilSpineCastingData);
+
+  const handleDateChange = (date) => {
+    setSelectedDates(prev => 
+      prev.includes(date) 
+        ? prev.filter(d => d !== date)
+        : [...prev, date]
+    );
+  };
+
+  const handleSectionChange = (section) => {
+    setSelectedSections(prev =>
+      prev.includes(section)
+        ? prev.filter(s => s !== section)
+        : [...prev, section]
+    );
+  };
   return (
     <div style={{ minHeight: '100vh', padding: '24px 24px 40px', background: 'linear-gradient(180deg, #040810 0%, #09101f 45%, #070b14 100%)', color: '#e2e8f0', fontFamily: "'Inter', system-ui, sans-serif" }}>
       <header style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '24px' }}>
@@ -103,7 +132,7 @@ const AprilDashboard = () => {
         </p>
       </header>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(180px, 1fr))', gap: '14px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(180px, 1fr))', gap: '14px', marginBottom: '24px' }}>
         {complianceCards.map((card) => (
           <div key={card.label} style={{ padding: '22px', borderRadius: '18px', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(148,163,184,0.08)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
@@ -117,63 +146,142 @@ const AprilDashboard = () => {
         ))}
       </div>
 
+      {/* Filter Section */}
+      <div style={{
+        background: 'rgba(15,23,42,0.65)',
+        backdropFilter: 'blur(18px)',
+        borderRadius: '18px',
+        border: '1px solid rgba(96,165,250,0.18)',
+        padding: '20px',
+        marginBottom: '24px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+          <Filter size={18} color="#60a5fa" />
+          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#fff' }}>Filter Data</h3>
+        </div>
+
+        {/* Date Filter */}
+        <div style={{ marginBottom: '20px' }}>
+          <p style={{ margin: '0 0 12px 0', color: '#94a3b8', fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <Calendar size={14} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'middle' }} /> Select Dates
+          </p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {['Week 1', 'Week 2', 'Week 3', 'Week 4'].map((date) => (
+              <button
+                key={date}
+                onClick={() => handleDateChange(date)}
+                style={{
+                  padding: '8px 14px',
+                  borderRadius: '8px',
+                  border: selectedDates.includes(date) ? '2px solid #60a5fa' : '1px solid rgba(148,163,184,0.2)',
+                  background: selectedDates.includes(date) ? 'rgba(96,165,250,0.2)' : 'rgba(30,41,59,0.4)',
+                  color: selectedDates.includes(date) ? '#60a5fa' : '#cbd5e1',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                {date}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Section Filter */}
+        <div>
+          <p style={{ margin: '0 0 12px 0', color: '#94a3b8', fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            Select Sections
+          </p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {sectionsList.map((section) => (
+              <button
+                key={section}
+                onClick={() => handleSectionChange(section)}
+                style={{
+                  padding: '8px 14px',
+                  borderRadius: '8px',
+                  border: selectedSections.includes(section) ? '2px solid #34d399' : '1px solid rgba(148,163,184,0.2)',
+                  background: selectedSections.includes(section) ? 'rgba(52,211,153,0.2)' : 'rgba(30,41,59,0.4)',
+                  color: selectedSections.includes(section) ? '#34d399' : '#cbd5e1',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                {section}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Charts - Reordered: Grid Casting, Spine Casting, Filing, Pasting */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
-        <ChartPanel
-          title="Grid Filing"
-          subtitle="Filing actual vs. target"
-          icon={<Layers size={18} color="#60a5fa" />}
-          accent="rgba(96,165,250,0.18)"
-          data={aprilFilingData}
-          yAxisLabel="g"
-          yMin={858}
-          yMax={884}
-          lines={[
-            { type: 'monotone', dataKey: 'actual', stroke: '#38bdf8', strokeWidth: 3, dot: { r: 5 }, name: 'Actual Wt' },
-          ]}
-        />
-        <ChartPanel
-          title="Pasting Weight"
-          subtitle="Pasting actual vs. spec"
-          icon={<Activity size={18} color="#34d399" />}
-          accent="rgba(52,211,153,0.16)"
-          data={aprilPastingData}
-          yAxisLabel="g"
-          yMin={596}
-          yMax={627}
-          lines={[
-            { type: 'monotone', dataKey: 'actual', stroke: '#34d399', strokeWidth: 3, dot: { r: 5 }, name: 'Actual Wt' },
-          ]}
-        />
-        <ChartPanel
-          title="Grid Casting"
-          subtitle="Casting weight and pass rate"
-          icon={<Cpu size={18} color="#f97316" />}
-          accent="rgba(249,115,22,0.16)"
-          data={aprilGridCastingData}
-          yAxisLabel="g"
-          yMin={124}
-          yMax={128}
-          secondaryAxis={true}
-          rightDomain={[92, 100]}
-          lines={[
-            { type: 'monotone', dataKey: 'actual', stroke: '#38bdf8', strokeWidth: 3, dot: { r: 5 }, name: 'Grid Wt' },
-            { type: 'monotone', dataKey: 'passRate', yAxisId: 'right', stroke: '#4ade80', strokeWidth: 2, dot: false, name: 'Pass Rate (%)' },
-          ]}
-        />
-        <ChartPanel
-          title="Charging Telemetry"
-          subtitle="Voltage compliance overview"
-          icon={<Zap size={18} color="#c084fc" />}
-          accent="rgba(192,132,252,0.16)"
-          data={aprilChargingData}
-          yAxisLabel="V"
-          yMin={14}
-          yMax={16}
-          lines={[
-            { type: 'monotone', dataKey: 'actual', stroke: '#a855f7', strokeWidth: 3, dot: { r: 5 }, name: 'Voltage (V)' },
-            { type: 'monotone', dataKey: 'current', stroke: '#f472b6', strokeWidth: 2, dot: false, name: 'Current (A)' },
-          ]}
-        />
+        {selectedSections.includes('Grid Casting') && (
+          <ChartPanel
+            title="Grid Casting"
+            subtitle="Casting weight performance"
+            icon={<Cpu size={18} color="#f97316" />}
+            accent="rgba(249,115,22,0.16)"
+            data={filteredGridCastingData}
+            yAxisLabel="g"
+            yMin={124}
+            yMax={128}
+            lines={[
+              { type: 'monotone', dataKey: 'actual', stroke: '#38bdf8', strokeWidth: 3, dot: { r: 5 }, name: 'Grid Wt' },
+            ]}
+          />
+        )}
+
+        {selectedSections.includes('Spine Casting') && (
+          <ChartPanel
+            title="Spine Casting"
+            subtitle="Spine casting weight performance"
+            icon={<Cpu size={18} color="#a855f7" />}
+            accent="rgba(168,85,247,0.16)"
+            data={filteredSpineCastingData}
+            yAxisLabel="g"
+            yMin={85}
+            yMax={90}
+            lines={[
+              { type: 'monotone', dataKey: 'actual', stroke: '#a855f7', strokeWidth: 3, dot: { r: 5 }, name: 'Spine Wt' },
+            ]}
+          />
+        )}
+
+        {selectedSections.includes('Filing') && (
+          <ChartPanel
+            title="Grid Filing"
+            subtitle="Filing actual vs. target"
+            icon={<Layers size={18} color="#60a5fa" />}
+            accent="rgba(96,165,250,0.18)"
+            data={filteredFilingData}
+            yAxisLabel="g"
+            yMin={858}
+            yMax={884}
+            lines={[
+              { type: 'monotone', dataKey: 'actual', stroke: '#38bdf8', strokeWidth: 3, dot: { r: 5 }, name: 'Actual Wt' },
+            ]}
+          />
+        )}
+
+        {selectedSections.includes('Pasting') && (
+          <ChartPanel
+            title="Pasting Weight"
+            subtitle="Pasting actual vs. spec"
+            icon={<Activity size={18} color="#34d399" />}
+            accent="rgba(52,211,153,0.16)"
+            data={filteredPastingData}
+            yAxisLabel="g"
+            yMin={596}
+            yMax={627}
+            lines={[
+              { type: 'monotone', dataKey: 'actual', stroke: '#34d399', strokeWidth: 3, dot: { r: 5 }, name: 'Actual Wt' },
+            ]}
+          />
+        )}
       </div>
     </div>
   );

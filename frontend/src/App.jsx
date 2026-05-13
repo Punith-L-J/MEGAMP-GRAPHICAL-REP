@@ -143,12 +143,6 @@ const Layout = ({ children, notifications }) => {
             <span style={{ fontSize: '10px', fontWeight: '800', color: 'var(--success)', letterSpacing: '0.1em' }}>SYSTEM NOMINAL</span>
           </div>
           <div style={{ height: '24px', width: '1px', background: 'var(--border)' }}></div>
-          <Link to="/april" style={{ textDecoration: 'none' }}>
-            <button className="btn-industrial" style={{ padding: '10px 24px', fontSize: '11px', background: 'rgba(96,165,250,0.08)', borderColor: 'rgba(96,165,250,0.18)', color: '#60a5fa' }}>
-              <BarChart3 size={16} />
-              APR 2026
-            </button>
-          </Link>
           <Link to="/login" style={{ textDecoration: 'none' }}>
             <button className="btn-industrial" style={{ padding: '10px 24px', fontSize: '11px' }}>
               <ShieldCheck size={16} />
@@ -2674,7 +2668,6 @@ export default function App() {
           <Route path="/lab" element={<LabPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/upload" element={<DataUploadPage addNotification={addNotification} />} />
-          <Route path="/april" element={<AprilDashboard />} />
         </Routes>
       </Layout>
     </Router>
