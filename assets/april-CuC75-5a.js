@@ -1,0 +1,1 @@
+import{_n as e,gn as t,ln as n,t as r,xn as i}from"./ui-v5-DLvQ_EdO.js";var a=i(e(),1),o=i(t(),1),s=n();o.createRoot(document.getElementById(`root`)).render((0,s.jsx)(a.StrictMode,{children:(0,s.jsx)(r,{})}));
