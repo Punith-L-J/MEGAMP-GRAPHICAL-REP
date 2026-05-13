@@ -9,11 +9,81 @@ const aprilFilingData = [
   { date: 'Week 4', actual: 874, target: 872, lsl: 860, usl: 880 },
 ];
 
+const aprilFilingDataDetailed = [
+  // Week 1
+  { date: 'Apr 1', actual: 868, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  { date: 'Apr 2', actual: 871, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  { date: 'Apr 3', actual: 867, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  { date: 'Apr 4', actual: 872, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  { date: 'Apr 5', actual: 869, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  { date: 'Apr 6', actual: 870, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  { date: 'Apr 7', actual: 871, target: 872, lsl: 860, usl: 880, week: 'Week 1' },
+  // Week 2
+  { date: 'Apr 8', actual: 873, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  { date: 'Apr 9', actual: 871, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  { date: 'Apr 10', actual: 874, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  { date: 'Apr 11', actual: 872, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  { date: 'Apr 12', actual: 873, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  { date: 'Apr 13', actual: 871, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  { date: 'Apr 14', actual: 872, target: 872, lsl: 860, usl: 880, week: 'Week 2' },
+  // Week 3
+  { date: 'Apr 15', actual: 877, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  { date: 'Apr 16', actual: 875, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  { date: 'Apr 17', actual: 878, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  { date: 'Apr 18', actual: 876, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  { date: 'Apr 19', actual: 874, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  { date: 'Apr 20', actual: 877, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  { date: 'Apr 21', actual: 876, target: 872, lsl: 860, usl: 880, week: 'Week 3' },
+  // Week 4
+  { date: 'Apr 22', actual: 873, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+  { date: 'Apr 23', actual: 875, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+  { date: 'Apr 24', actual: 874, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+  { date: 'Apr 25', actual: 873, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+  { date: 'Apr 26', actual: 875, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+  { date: 'Apr 27', actual: 874, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+  { date: 'Apr 28', actual: 873, target: 872, lsl: 860, usl: 880, week: 'Week 4' },
+];
+
 const aprilPastingData = [
   { date: 'Week 1', actual: 611, target: 615, lsl: 603, usl: 623 },
   { date: 'Week 2', actual: 616, target: 615, lsl: 603, usl: 623 },
   { date: 'Week 3', actual: 618, target: 615, lsl: 603, usl: 623 },
   { date: 'Week 4', actual: 614, target: 615, lsl: 603, usl: 623 },
+];
+
+const aprilPastingDataDetailed = [
+  // Week 1
+  { date: 'Apr 1', actual: 610, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  { date: 'Apr 2', actual: 612, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  { date: 'Apr 3', actual: 609, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  { date: 'Apr 4', actual: 613, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  { date: 'Apr 5', actual: 611, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  { date: 'Apr 6', actual: 612, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  { date: 'Apr 7', actual: 610, target: 615, lsl: 603, usl: 623, week: 'Week 1' },
+  // Week 2
+  { date: 'Apr 8', actual: 617, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  { date: 'Apr 9', actual: 615, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  { date: 'Apr 10', actual: 618, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  { date: 'Apr 11', actual: 616, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  { date: 'Apr 12', actual: 617, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  { date: 'Apr 13', actual: 615, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  { date: 'Apr 14', actual: 616, target: 615, lsl: 603, usl: 623, week: 'Week 2' },
+  // Week 3
+  { date: 'Apr 15', actual: 619, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  { date: 'Apr 16', actual: 617, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  { date: 'Apr 17', actual: 620, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  { date: 'Apr 18', actual: 618, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  { date: 'Apr 19', actual: 616, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  { date: 'Apr 20', actual: 619, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  { date: 'Apr 21', actual: 618, target: 615, lsl: 603, usl: 623, week: 'Week 3' },
+  // Week 4
+  { date: 'Apr 22', actual: 613, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
+  { date: 'Apr 23', actual: 615, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
+  { date: 'Apr 24', actual: 614, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
+  { date: 'Apr 25', actual: 613, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
+  { date: 'Apr 26', actual: 615, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
+  { date: 'Apr 27', actual: 614, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
+  { date: 'Apr 28', actual: 613, target: 615, lsl: 603, usl: 623, week: 'Week 4' },
 ];
 
 const aprilGridCastingData = [
@@ -23,6 +93,41 @@ const aprilGridCastingData = [
   { date: 'Week 4', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8 },
 ];
 
+const aprilGridCastingDataDetailed = [
+  // Week 1
+  { date: 'Apr 1', actual: 125.1, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  { date: 'Apr 2', actual: 125.3, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  { date: 'Apr 3', actual: 125.0, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  { date: 'Apr 4', actual: 125.4, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  { date: 'Apr 5', actual: 125.2, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  { date: 'Apr 6', actual: 125.3, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  { date: 'Apr 7', actual: 125.1, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 1' },
+  // Week 2
+  { date: 'Apr 8', actual: 125.7, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  { date: 'Apr 9', actual: 125.5, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  { date: 'Apr 10', actual: 125.8, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  { date: 'Apr 11', actual: 125.6, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  { date: 'Apr 12', actual: 125.7, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  { date: 'Apr 13', actual: 125.5, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  { date: 'Apr 14', actual: 125.6, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 2' },
+  // Week 3
+  { date: 'Apr 15', actual: 126.1, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  { date: 'Apr 16', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  { date: 'Apr 17', actual: 126.2, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  { date: 'Apr 18', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  { date: 'Apr 19', actual: 125.8, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  { date: 'Apr 20', actual: 126.1, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  { date: 'Apr 21', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 3' },
+  // Week 4
+  { date: 'Apr 22', actual: 125.8, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+  { date: 'Apr 23', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+  { date: 'Apr 24', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+  { date: 'Apr 25', actual: 125.8, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+  { date: 'Apr 26', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+  { date: 'Apr 27', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+  { date: 'Apr 28', actual: 125.8, target: 125.5, lsl: 124.4, usl: 126.8, week: 'Week 4' },
+];
+
 const aprilSpineCastingData = [
   { date: 'Week 1', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8 },
   { date: 'Week 2', actual: 87.6, target: 87.5, lsl: 86.2, usl: 88.8 },
@@ -30,12 +135,48 @@ const aprilSpineCastingData = [
   { date: 'Week 4', actual: 87.4, target: 87.5, lsl: 86.2, usl: 88.8 },
 ];
 
+const aprilSpineCastingDataDetailed = [
+  // Week 1
+  { date: 'Apr 1', actual: 87.2, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  { date: 'Apr 2', actual: 87.4, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  { date: 'Apr 3', actual: 87.1, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  { date: 'Apr 4', actual: 87.5, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  { date: 'Apr 5', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  { date: 'Apr 6', actual: 87.4, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  { date: 'Apr 7', actual: 87.2, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 1' },
+  // Week 2
+  { date: 'Apr 8', actual: 87.7, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  { date: 'Apr 9', actual: 87.5, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  { date: 'Apr 10', actual: 87.8, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  { date: 'Apr 11', actual: 87.6, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  { date: 'Apr 12', actual: 87.7, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  { date: 'Apr 13', actual: 87.5, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  { date: 'Apr 14', actual: 87.6, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 2' },
+  // Week 3
+  { date: 'Apr 15', actual: 87.0, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  { date: 'Apr 16', actual: 87.2, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  { date: 'Apr 17', actual: 86.9, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  { date: 'Apr 18', actual: 87.1, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  { date: 'Apr 19', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  { date: 'Apr 20', actual: 87.0, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  { date: 'Apr 21', actual: 87.1, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 3' },
+  // Week 4
+  { date: 'Apr 22', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+  { date: 'Apr 23', actual: 87.5, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+  { date: 'Apr 24', actual: 87.4, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+  { date: 'Apr 25', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+  { date: 'Apr 26', actual: 87.5, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+  { date: 'Apr 27', actual: 87.4, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+  { date: 'Apr 28', actual: 87.3, target: 87.5, lsl: 86.2, usl: 88.8, week: 'Week 4' },
+];
+
 const sectionsList = ['Grid Casting', 'Spine Casting', 'Filing', 'Pasting'];
 
 const complianceCards = [
   { label: 'Filing deviation', value: '+2 g', status: 'On target', icon: <Layers size={18} color="#60a5fa" /> },
   { label: 'Pasting deviation', value: '-1 g', status: 'Minor trim', icon: <Activity size={18} color="#34d399" /> },
-  { label: 'Casting variance', value: '+0.4 g', status: 'Stable', icon: <Cpu size={18} color="#f97316" /> },
+  { label: 'Grid casting variance', value: '+0.4 g', status: 'Stable', icon: <Cpu size={18} color="#f97316" /> },
+  { label: 'Spine casting variance', value: '+0.1 g', status: 'Stable', icon: <Cpu size={18} color="#a855f7" /> },
 ];
 
 const ChartPanel = ({ title, subtitle, icon, accent, data, yAxisLabel, yMin, yMax, lines, secondaryAxis = false, rightDomain = [80, 100] }) => (
@@ -88,17 +229,23 @@ const ChartPanel = ({ title, subtitle, icon, accent, data, yAxisLabel, yMin, yMa
 
 const AprilDashboard = () => {
   const [selectedDates, setSelectedDates] = useState(['Week 1', 'Week 2', 'Week 3', 'Week 4']);
-  const [selectedSections, setSelectedSections] = useState(['Grid Casting', 'Filing', 'Pasting']);
+  const [selectedSections, setSelectedSections] = useState(['Grid Casting', 'Spine Casting', 'Filing', 'Pasting']);
 
-  // Filter data based on selections
-  const filterData = (data) => {
-    return data.filter(item => selectedDates.includes(item.date));
+  // Filter data based on selections - use detailed data if single week selected
+  const filterData = (weeklyData, detailedData) => {
+    if (selectedDates.length === 1) {
+      // Single week selected - show detailed daily data
+      return detailedData.filter(item => selectedDates.includes(item.week));
+    } else {
+      // Multiple weeks selected - show weekly aggregated data
+      return weeklyData.filter(item => selectedDates.includes(item.date));
+    }
   };
 
-  const filteredFilingData = filterData(aprilFilingData);
-  const filteredPastingData = filterData(aprilPastingData);
-  const filteredGridCastingData = filterData(aprilGridCastingData);
-  const filteredSpineCastingData = filterData(aprilSpineCastingData);
+  const filteredFilingData = filterData(aprilFilingData, aprilFilingDataDetailed);
+  const filteredPastingData = filterData(aprilPastingData, aprilPastingDataDetailed);
+  const filteredGridCastingData = filterData(aprilGridCastingData, aprilGridCastingDataDetailed);
+  const filteredSpineCastingData = filterData(aprilSpineCastingData, aprilSpineCastingDataDetailed);
 
   const handleDateChange = (date) => {
     setSelectedDates(prev => 
@@ -132,7 +279,7 @@ const AprilDashboard = () => {
         </p>
       </header>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(180px, 1fr))', gap: '14px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(180px, 1fr))', gap: '14px', marginBottom: '24px' }}>
         {complianceCards.map((card) => (
           <div key={card.label} style={{ padding: '22px', borderRadius: '18px', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(148,163,184,0.08)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
