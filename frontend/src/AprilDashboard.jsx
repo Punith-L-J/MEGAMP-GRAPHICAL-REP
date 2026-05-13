@@ -3,19 +3,31 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 import { Activity, Zap, Layers, Cpu, Factory } from 'lucide-react';
 
 const aprilFilingData = [
-  { date: 'Apr 2026', actual: 874, target: 872, lsl: 860, usl: 880 },
+  { date: 'Week 1', actual: 869, target: 872, lsl: 860, usl: 880 },
+  { date: 'Week 2', actual: 872, target: 872, lsl: 860, usl: 880 },
+  { date: 'Week 3', actual: 876, target: 872, lsl: 860, usl: 880 },
+  { date: 'Week 4', actual: 874, target: 872, lsl: 860, usl: 880 },
 ];
 
 const aprilPastingData = [
-  { date: 'Apr 2026', actual: 614, target: 615, lsl: 603, usl: 623 },
+  { date: 'Week 1', actual: 611, target: 615, lsl: 603, usl: 623 },
+  { date: 'Week 2', actual: 616, target: 615, lsl: 603, usl: 623 },
+  { date: 'Week 3', actual: 618, target: 615, lsl: 603, usl: 623 },
+  { date: 'Week 4', actual: 614, target: 615, lsl: 603, usl: 623 },
 ];
 
 const aprilGridCastingData = [
-  { date: 'Apr 2026', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 96.4 },
+  { date: 'Week 1', actual: 125.2, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 97.0 },
+  { date: 'Week 2', actual: 125.6, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 95.4 },
+  { date: 'Week 3', actual: 126.0, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 96.1 },
+  { date: 'Week 4', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 96.4 },
 ];
 
 const aprilChargingData = [
-  { date: 'Apr 2026', actual: 15.2, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.1 },
+  { date: 'Week 1', actual: 15.1, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.1 },
+  { date: 'Week 2', actual: 14.8, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.3 },
+  { date: 'Week 3', actual: 15.2, target: 15.0, lsl: 14.5, usl: 15.7, current: 14.9 },
+  { date: 'Week 4', actual: 15.0, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.1 },
 ];
 
 const complianceCards = [
