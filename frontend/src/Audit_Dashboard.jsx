@@ -6,15 +6,15 @@ import { Activity, Zap, Layers, Cpu, Factory } from 'lucide-react';
 const filingData = [
   { date: 'Nov 2025', actual: 875, target: 872, lsl: 860, usl: 880 },
   { date: 'Dec 2025', actual: 871, target: 872, lsl: 860, usl: 880 },
-  { date: 'Jan 2026', actual: 878, target: 872, lsl: 860, usl: 880 },
+  { date: 'Jan 2026', actual: 882, target: 872, lsl: 860, usl: 880 },
   { date: 'Feb 2026', actual: 869, target: 872, lsl: 860, usl: 880 },
-  { date: 'Mar 2026', actual: 872, target: 872, lsl: 860, usl: 880 },
+  { date: 'Mar 2026', actual: 858, target: 872, lsl: 860, usl: 880 },
   { date: 'Apr 2026', actual: 874, target: 872, lsl: 860, usl: 880 },
 ];
 
 const pastingData = [
   { date: 'Nov 2025', actual: 615, target: 615, lsl: 603, usl: 623 },
-  { date: 'Dec 2025', actual: 618, target: 615, lsl: 603, usl: 623 },
+  { date: 'Dec 2025', actual: 624, target: 615, lsl: 603, usl: 623 },
   { date: 'Jan 2026', actual: 612, target: 615, lsl: 603, usl: 623 },
   { date: 'Feb 2026', actual: 620, target: 615, lsl: 603, usl: 623 },
   { date: 'Mar 2026', actual: 616, target: 615, lsl: 603, usl: 623 },
@@ -24,7 +24,7 @@ const pastingData = [
 const gridCastingData = [
   { date: 'Nov 2025', actual: 125.3, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 97.5 },
   { date: 'Dec 2025', actual: 125.7, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 94.8 },
-  { date: 'Jan 2026', actual: 125.1, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 98.2 },
+  { date: 'Jan 2026', actual: 127.2, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 98.2 },
   { date: 'Feb 2026', actual: 124.9, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 99.3 },
   { date: 'Mar 2026', actual: 125.4, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 95.7 },
   { date: 'Apr 2026', actual: 125.9, target: 125.5, lsl: 124.4, usl: 126.8, passRate: 96.4 },
@@ -33,7 +33,7 @@ const gridCastingData = [
 const chargingData = [
   { date: 'Nov 2025', actual: 14.8, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.2 },
   { date: 'Dec 2025', actual: 15.1, target: 15.0, lsl: 14.5, usl: 15.7, current: 14.9 },
-  { date: 'Jan 2026', actual: 14.9, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.6 },
+  { date: 'Jan 2026', actual: 14.3, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.6 },
   { date: 'Feb 2026', actual: 15.3, target: 15.0, lsl: 14.5, usl: 15.7, current: 14.7 },
   { date: 'Mar 2026', actual: 15.0, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.3 },
   { date: 'Apr 2026', actual: 15.2, target: 15.0, lsl: 14.5, usl: 15.7, current: 15.1 },
@@ -213,10 +213,10 @@ const ManufacturingDashboard = () => {
                 <YAxis yAxisId="right" orientation="right" stroke="#475569" tick={{ fill: '#4ade80', fontSize: 9, fontWeight: 600 }} domain={[90, 100]} tickFormatter={(v) => `${v}%`} axisLine={false} tickLine={false} />
                 <Tooltip cursor={{ stroke: '#334155', strokeWidth: 1, fill: '#020617', opacity: 0.3 }} contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', fontSize: '10px', borderRadius: '8px', color: '#e2e8f0' }} />
                 <Legend content={<VisibleLegend />} />
-                <Line type="monotone" dataKey="lsl" stroke="#f59e0b" strokeDasharray="6 4" dot={false} name="LSL" />
-                <Line type="monotone" dataKey="target" stroke="#60a5fa" strokeDasharray="3 3" strokeWidth={2} dot={false} name="Target" />
-                <Line type="monotone" dataKey="usl" stroke="#ef4444" strokeDasharray="6 4" dot={false} name="USL" />
-                <Line type="monotone" dataKey="actual" stroke="#38bdf8" strokeWidth={2.5} dot={{ r: 2 }} name="Grid Weight (g)" />
+                <Line type="monotone" dataKey="lsl" stroke="#f59e0b" strokeDasharray="6 4" strokeWidth={2} dot={false} opacity={0.95} name="LSL" />
+                <Line type="monotone" dataKey="target" stroke="#60a5fa" strokeDasharray="3 3" strokeWidth={2.5} dot={false} opacity={0.95} name="Target" />
+                <Line type="monotone" dataKey="usl" stroke="#ef4444" strokeDasharray="6 4" strokeWidth={2} dot={false} opacity={0.95} name="USL" />
+                <Line type="monotone" dataKey="actual" stroke="#38bdf8" strokeWidth={3} dot={{ r: 2 }} name="Grid Weight (g)" />
                 <Line yAxisId="right" type="monotone" dataKey="passRate" stroke="#4ade80" strokeWidth={2} dot={{ r: 2 }} name="Pass Rate (%)" />
               </LineChart>
             </ResponsiveContainer>
