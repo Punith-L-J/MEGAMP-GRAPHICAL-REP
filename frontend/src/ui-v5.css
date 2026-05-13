@@ -1,0 +1,102 @@
+/* UI Redesign v5: dedicated overrides (keep inline styles in App.jsx intact) */
+
+/* ===== Better system typography ===== */
+.section-label {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+}
+
+.cyber-header h1 {
+  line-height: 1.02;
+}
+
+/* ===== Glass polish ===== */
+.glass-panel {
+  background: rgba(12, 12, 20, 0.72);
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 87, 34, 0.03) inset;
+}
+
+.glass-panel::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.12), transparent);
+}
+
+/* Keep v5 tables usable even when current code does not use .table-v5 class */
+table{
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+
+/* ===== Nav polish ===== */
+.nav-bar {
+  background: rgba(8, 8, 14, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Buttons (v5 microinteractions) ===== */
+.btn-industrial {
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px rgba(255, 87, 34, 0.18) inset,
+    0 0 22px rgba(255, 87, 34, 0.25);
+}
+
+.btn-industrial:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* ===== Table redesign (works with current inline table usage) ===== */
+.table-v5 {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table-v5 thead th {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 22px;
+}
+
+.table-v5 tbody td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 22px;
+}
+
+/* Apply status badge glow for both class-based and inline status-badge */
+.status-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.status-badge.status-active {
+  background: rgba(0, 255, 65, 0.06);
+  border-color: rgba(0, 255, 65, 0.25);
+  box-shadow: 0 0 18px rgba(0, 255, 65, 0.12);
+}
+
+.status-badge.status-inactive {
+  background: rgba(255, 7, 58, 0.06);
+  border-color: rgba(255, 7, 58, 0.25);
+  box-shadow: 0 0 18px rgba(255, 7, 58, 0.12);
+}
+
+.status-badge.status-warning {
+  background: rgba(255, 171, 0, 0.06);
+  border-color: rgba(255, 171, 0, 0.25);
+  box-shadow: 0 0 18px rgba(255, 171, 0, 0.10);
+}
+
+/* ===== Recharts tooltip consistency ===== */
+.recharts-tooltip-wrapper {
+  filter: drop-shadow(0 14px 40px rgba(0,0,0,0.55));
+}
+
+/* ===== Subtle hover for rows (tables) ===== */
+.table-row:hover {
+  background: rgba(255, 87, 34, 0.06) !important;
+}
+
