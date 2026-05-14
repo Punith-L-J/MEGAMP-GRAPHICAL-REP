@@ -4,11 +4,12 @@ import {
   Zap, Truck, Activity, FlaskConical, BarChart3, User, ShieldCheck, 
   ChevronRight, Cpu, Layers, Radio, LogIn, Lock, Database, Clock, 
   Settings, AlertTriangle, CheckCircle2, Factory, Terminal, BatteryCharging,
-  Upload
+  Upload, Calendar
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import AprilDashboard from './AprilDashboard.jsx';
+import ManufacturingDashboard from './Audit_Dashboard.jsx';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -287,7 +288,9 @@ const Dashboard = () => {
     { path: '/process', title: 'Battery Process', icon: <Activity size={24} />, desc: 'Manufacturing process control' },
     { path: '/lab', title: 'Quality Lab', icon: <FlaskConical size={24} />, desc: 'Battery validation & reliability tests' },
     { path: '/insights', title: 'Production Insights', icon: <BarChart3 size={24} />, desc: 'Yield and cycle analytics' },
-    { path: '/upload', title: 'Data Bridge', icon: <Upload size={24} />, desc: 'Secure data migration and audit' }
+    { path: '/upload', title: 'Data Bridge', icon: <Upload size={24} />, desc: 'Secure data migration and audit' },
+    { path: '/april', title: 'April Analytics', icon: <Calendar size={24} />, desc: 'April 2026 Process Control Analytics' },
+    { path: '/audit', title: 'Mfg Audit', icon: <Factory size={24} />, desc: 'Manufacturing Intelligence Command' }
   ];
 
   return (
@@ -2668,6 +2671,8 @@ export default function App() {
           <Route path="/lab" element={<LabPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/upload" element={<DataUploadPage addNotification={addNotification} />} />
+          <Route path="/april" element={<AprilDashboard />} />
+          <Route path="/audit" element={<ManufacturingDashboard />} />
         </Routes>
       </Layout>
     </Router>
