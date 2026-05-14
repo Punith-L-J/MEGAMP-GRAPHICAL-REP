@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/MEGAMP-GRAPHICAL-REP/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'development' ? '/' : '/MEGAMP-GRAPHICAL-REP/',
   plugins: [
     react(),
     tailwindcss(),
@@ -12,4 +12,4 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-})
+}))
