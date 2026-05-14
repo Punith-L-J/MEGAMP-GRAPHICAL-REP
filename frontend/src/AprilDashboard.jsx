@@ -3,7 +3,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 import { Activity, Layers, Cpu, Factory, Calendar, Filter } from 'lucide-react';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
 
 const aprilFilingData = [
   { date: 'Week 1', actual: 869, target: 872, lsl: 860, usl: 880 },
